@@ -20,7 +20,7 @@ ch.setFormatter(formatter)
 logger.addHandler(ch)
 
 def parse(line):
-    regex = r"\s*Kerberos:\s(?P<flag>\w+)-REQ\s(?P<username>\w+)@(\S*)\s+from\s+ipv4:(?P<source_ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(?P<source_port>\d+)\sfor\s(?P<destination>\S+)"
+    regex = r"\s*Kerberos:\s(?P<flag>\w+)-REQ\s(?P<username>\w+)@(\S*)\s+from\s+ipv4:(?P<source_ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):(?P<source_port>\d+)\sfor\s(?P<destination>host\/\S+)"
     match = re.match(regex, line)
     if match:
         print(line)
